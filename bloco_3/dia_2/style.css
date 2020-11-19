@@ -1,0 +1,38 @@
+body{
+    font-size: 16px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 65px;
+    color: orange;
+    font-family: sans-serif;
+    letter-spacing: -1px;
+    text-decoration: underline;
+  }
+  
+  p{        
+    font-weight: 600;
+    font-size: 3em;
+    font-style: italic;
+  }
+
+  p, ul{
+    background-color: violet;
+  }
+
+  ul {
+    line-height: 25px;
+  }
+
+  .bg-amarelo{
+    background-color: yellow;
+  }
+
+  .bg-vermelho{
+    background-color: red;
+  }
+
+  .bg-marrom{
+    background-color: brown;
+  }
