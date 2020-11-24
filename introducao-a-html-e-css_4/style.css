@@ -1,0 +1,98 @@
+body{
+    font-family: 'Courier New', Courier, monospace;    
+     
+}
+
+#header{
+    border: 1px solid red;
+    width: 100%;
+    color: white;
+    background-color: rgb(255, 0, 0);
+    text-align: center;   
+}
+
+#navigation li, #navigation a{
+    display: inline;
+    text-align: center;
+    color: white;
+}
+
+#navigation a:hover, #contacts a:hover{
+    color: red;
+    background-color: rgb(255, 184, 184);
+    padding: 10px;
+}
+
+#main-content, #references{
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#about-stomatopoda img, #interesting-things img{
+    width: 100%;
+    max-width: 600px;
+    
+}
+
+#about-stomatopoda p{
+    text-align: left;
+}
+
+.content-table{
+    border-style: ridge;
+    border-color: red;
+    border-style: double;
+    padding: 10px;
+    width: 60%;
+    max-width: 600px;
+    background-color: rgb(255, 239, 239);
+}    
+
+.content-table td, th{
+    padding: 10px;
+   
+}
+
+#interesting-things{
+    text-align: center;
+    width: 70%;
+    margin: 50px auto;
+}
+
+#things-1, #things-2, #things-3, #things-4, #things-5, #things-6, #things-7{
+    margin-bottom: 50px;
+}
+
+#references{
+    list-style: none;
+    text-align: left;
+    margin: 30px auto;
+}
+
+#references li, #references a{
+    list-style-type: disc;
+    color: red;
+    text-decoration: none;
+    padding: 5px;
+}
+
+#contacts{
+    background-color: red; 
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+#contacts a{
+    color: white;
+    text-decoration: none;
+}
+
+#contacts a:hover{
+    color: red;
+
+}
+
+
+
