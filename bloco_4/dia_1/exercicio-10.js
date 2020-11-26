@@ -6,17 +6,20 @@ valorCustoTotal = valorCusto + impostoSobreOCusto
 lucro = valorVenda - valorCustoTotal (lucro de um produto)
 */
 
-let custoProduto = 90;
-let valorVenda = 300;
-let impostoProduto = custoProduto * 20 / 100;
-let valorCustoTotal = custoProduto + impostoProduto;
-let lucro = valorVenda - valorCustoTotal;
+let custoProduto = 9;
+let valorVenda = 25;
+let qtdDeProdutosVendidos = 1000;
+let valorProdutoVendidos = custoProduto * qtdDeProdutosVendidos;
+let valorTotalVenda = valorVenda * qtdDeProdutosVendidos;
+let impostoProduto = valorProdutoVendidos * 20 / 100;
+let custoTotalProdutos = valorProdutoVendidos + impostoProduto;
+let lucro = valorTotalVenda - custoTotalProdutos;
 
 if (custoProduto > 0 && valorVenda > 0){
-    console.log('Custo do produto: R$' + custoProduto);
+    console.log('Custo total do produto: R$' + valorProdutoVendidos);
     console.log('Valor do imposto (20%): R$' + impostoProduto);
-    console.log('Valor de custo total: R$' + valorCustoTotal);
-    console.log('Valor da venda: R$' + valorVenda);
+    console.log('Valor de custo total: R$' + custoTotalProdutos);
+    console.log('Valor da venda: R$' + valorTotalVenda);
     console.log('---------------');
     console.log('Lucro total: R$' + lucro);
 }else{
