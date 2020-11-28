@@ -12,10 +12,10 @@ Atenção! Note que esse exercício é bem mais complexo que o anterior! Não ba
 
 let n = 5;
 let asterisco = '*';
-let espaco = ' ';
+let espaco = '';
 let contador = n;
 for (let index = 0; index < n; index += 1) {
-    espaco = ' ';
+    espaco = '';
     for(let j = contador; j > 1 ; j -= 1) {
         espaco += ' ';
         
@@ -26,7 +26,7 @@ for (let index = 0; index < n; index += 1) {
 }
 
 
-/* ou simplificando *///
+/* ou smplificando *///
 console.log('\nSimplificando');
 //let n = 5;
 
