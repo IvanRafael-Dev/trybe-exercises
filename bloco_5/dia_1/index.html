@@ -47,14 +47,14 @@
       
       changeText();
 
-      function changeSquareColorToGreen (){
+      function changeSquareColorToGreen () {
         let main = document.getElementsByClassName("main-content")[0];
         main.style.backgroundColor = "rgb(76,164,109)";
       }
 
       changeSquareColorToGreen();
 
-      function changeSquareColorToWhite (){
+      function changeSquareColorToWhite () {
         let center = document.getElementsByClassName("center-content")[0];
         center.style.backgroundColor = "rgb(255,255,255)";
       }
@@ -67,6 +67,15 @@
       }
 
       titleCorrection();
+
+      function changeParagraphsToUpperCase() {
+        let text = document.getElementsByTagName("p");
+        for (let i = 0; i < text.length; i += 1) {
+          text[i].innerText = text[i].innerText.toUpperCase();
+        }        
+      }
+
+      changeParagraphsToUpperCase();
       
     </script>
   </body>
