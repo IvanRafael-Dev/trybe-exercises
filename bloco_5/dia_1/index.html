@@ -76,6 +76,14 @@
       }
 
       changeParagraphsToUpperCase();
+
+      function showTagContent() {
+        for (let i = 0; i < document.getElementsByTagName("p").length; i += 1) {
+          console.log(document.getElementsByTagName("p")[i].innerText)
+        } 
+      }
+
+      showTagContent();
       
     </script>
   </body>
