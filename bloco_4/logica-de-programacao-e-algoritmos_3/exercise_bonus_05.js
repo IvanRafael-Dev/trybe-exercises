@@ -8,7 +8,7 @@ n = 7
 *******
 
 */
-let n = 7;
+let n = 19;
 let middle = (n+1)/2;
 let asterisco = '*';
 let right = middle;

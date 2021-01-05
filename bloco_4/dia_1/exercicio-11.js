@@ -34,7 +34,12 @@ let valorINSS;
 let impostoRenda;
 let parcelaIR;
 
-
+/*INSS
+Salário bruto até R$ 1.556,94: alíquota de 8%
+Salário bruto de R$ 1.556,95 a R$ 2.594,92: alíquota de 9%
+Salário bruto de R$ 2.594,93 a R$ 5.189,82: alíquota de 11%
+Salário bruto acima de R$   : alíquota máxima de R$ 570,88
+*/
 
 if (salarioBruto <= 1556.94){
     valorINSS = salarioBruto * aliquota8Perc;    
