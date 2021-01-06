@@ -1,16 +1,89 @@
-const states = ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'];
-const statesNames = ['Acre', 'Alagoas', 'Amazonas', 'Amapá', 'Bahia', 'Ceará', 'Destrito Federal', 'Espírito Santo', 'Goias', 'Maranhão', 'Minas Gerais', 'Mato Grosso do Sul', 'Mato Grosso', 'Pará', 'Paraíba', 'Pernambuco', 'Piauí', 'Paraná', 'Rio de Janeiro', 'Rio Grande do Norte', 'Rondônia', 'Roraima', 'Rio Grande do Sul', 'Santa Catarina', 'Sergipe', 'São Paulo', 'Tocantins'];
+const states = [
+  "AC",
+  "AL",
+  "AM",
+  "AP",
+  "BA",
+  "CE",
+  "DF",
+  "ES",
+  "GO",
+  "MA",
+  "MG",
+  "MS",
+  "MT",
+  "PA",
+  "PB",
+  "PE",
+  "PI",
+  "PR",
+  "RJ",
+  "RN",
+  "RO",
+  "RR",
+  "RS",
+  "SC",
+  "SE",
+  "SP",
+  "TO",
+];
+const statesNames = [
+  "Acre",
+  "Alagoas",
+  "Amazonas",
+  "Amapá",
+  "Bahia",
+  "Ceará",
+  "Destrito Federal",
+  "Espírito Santo",
+  "Goias",
+  "Maranhão",
+  "Minas Gerais",
+  "Mato Grosso do Sul",
+  "Mato Grosso",
+  "Pará",
+  "Paraíba",
+  "Pernambuco",
+  "Piauí",
+  "Paraná",
+  "Rio de Janeiro",
+  "Rio Grande do Norte",
+  "Rondônia",
+  "Roraima",
+  "Rio Grande do Sul",
+  "Santa Catarina",
+  "Sergipe",
+  "São Paulo",
+  "Tocantins",
+];
 
-const select = document.getElementById('states')
+const select = document.getElementById("states");
 
 function createStateOptions() {
   for (let index = 0; index < states.length; index++) {
-    const option = document.createElement('option');
+    const option = document.createElement("option");
     select.appendChild(option);
     option.value = states[index].toLowerCase();
     option.innerText = statesNames[index];
-  } 
+  }
 }
+
+function validateDate() {
+  const inputDate = document.getElementById('start-date').value.split('/');
+  if (
+    inputDate[0] < 0 ||
+    inputDate[0] > 31 ||
+    inputDate[1] < 0 ||
+    inputDate[1] > 12 ||
+    inputDate[2] < 0 ||
+    inputDate[2].length !== 4
+  ) {
+    alert('Data Inválido')
+  }
+}
+
+const startDate = document.querySelector('#start-date');
+startDate.addEventListener('change', validateDate);
 
 // function validateDate() {
 //   let inputDate = document.getElementById('start-date').value;
@@ -18,7 +91,7 @@ function createStateOptions() {
 //     let day = inputDate.substring(0, 2);
 //     let month = inputDate.substring(3, 5);
 //     let year = inputDate.substring(6, 10);
-//     if ((day < 0 && day > 31) || (month < 0 && month > 12) || (year < 0 && year.length !== 4)){
+//     if ((day < 0 || day > 31) || (month < 0 || month > 12) || (year < 0 || year.length !== 4)){
 //      alert('Formato de data incorreta (dd/mm/aaaa)');
 //      return;
 //     }
@@ -27,5 +100,4 @@ function createStateOptions() {
 
 window.onload = function () {
   createStateOptions();
-  // validateDate();
-}
+};
