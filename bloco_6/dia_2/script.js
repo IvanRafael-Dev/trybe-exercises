@@ -12,20 +12,20 @@ function createStateOptions() {
   } 
 }
 
-function validateDate() {
-  let inputDate = document.getElementById('start-date').value;
-  // if(inputDate.indexOf('/') === 2 || inputDate.indexOf('/') === 5){
-    let day = inputDate.substring(0, 2);
-    let month = inputDate.substring(3, 5);
-    let year = inputDate.substring(6, 10);
-    if ((day < 0 && day > 31) || (month < 0 && month > 12) || (year < 0 && year.length !== 4)){
-     alert('Formato de data incorreta (dd/mm/aaaa)');
-     return;
-    // }
-  }
-}
+// function validateDate() {
+//   let inputDate = document.getElementById('start-date').value;
+//   // if(inputDate.indexOf('/') === 2 || inputDate.indexOf('/') === 5){
+//     let day = inputDate.substring(0, 2);
+//     let month = inputDate.substring(3, 5);
+//     let year = inputDate.substring(6, 10);
+//     if ((day < 0 && day > 31) || (month < 0 && month > 12) || (year < 0 && year.length !== 4)){
+//      alert('Formato de data incorreta (dd/mm/aaaa)');
+//      return;
+//     // }
+//   }
+// }
 
 window.onload = function () {
   createStateOptions();
-  validateDate();
+  // validateDate();
 }
