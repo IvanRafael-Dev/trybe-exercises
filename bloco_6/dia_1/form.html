@@ -7,47 +7,83 @@
     <title>Formulários</title>
   </head>
   <body>
-    <header class="form-header">
-      <h1>Formulário para cadastro de currículo</h1>
-      <p>Preencha os campos abaixo</p>
+    <header class="container">
+      <h1 class="title">Formulário para cadastro de currículo</h1>
+      <p class="subtitle">Preencha os campos abaixo</p>
     </header>
-    <main>
+    <main class="container">
       <form id="cv-form" action="" method="GET">
         <fieldset>
-          <legend>Dados Pessoais</legend>
+          <legend class="label">Dados Pessoais</legend>
+          <hr />
           <!-- NOME -->
           <div class="line-content">
-            <label for="full-name">Nome:</label>
-            <input type="text" maxlength="40" id="full-name" name="name" required>
+            <label class="label" for="full-name">Nome:</label>
+            <input
+              class="input"
+              type="text"
+              maxlength="40"
+              id="full-name"
+              name="name"
+              required
+            />
           </div>
 
           <!-- EMAIL -->
           <div class="line-content">
-            <label for="e-mail">E-mail:</label>
-            <input type="text" id="email" name="email" maxlength="50" required>
+            <label class="label" for="e-mail">E-mail:</label>
+            <input
+              class="input"
+              type="text"
+              id="email"
+              name="email"
+              maxlength="50"
+              required
+            />
           </div>
 
           <!-- CPF -->
           <div class="line-content">
-            <label for="cpf-number">CPF:</label>
-            <input type="text" maxlength="11" id="cpf-number" name="cpf-number" required>
+            <label class="label" for="cpf-number">CPF:</label>
+            <input
+              class="input"
+              type="text"
+              maxlength="11"
+              id="cpf-number"
+              name="cpf-number"
+              required
+            />
           </div>
 
           <!-- ENDERECO -->
           <div class="line-content">
-            <label for="address">Endereço:</label>
-            <input type="text" maxlength="200" id="address" name="address" required>
+            <label class="label" for="address">Endereço:</label>
+            <input
+              class="input"
+              type="text"
+              maxlength="200"
+              id="address"
+              name="address"
+              required
+            />
           </div>
 
           <!-- CIDADE -->
           <div class="line-content">
-            <label for="city">Cidade:</label>
-            <input type="text" maxlength="28" id="city" name="city" required>
+            <label class="label" for="city">Cidade:</label>
+            <input
+              class="input"
+              type="text"
+              maxlength="28"
+              id="city"
+              name="city"
+              required
+            />
           </div>
 
           <!-- ESTADO -->
           <div class="line-content">
-            <label for="states">Estado:</label>
+            <label class="label" for="states">Estado:</label>
             <select name="state" id="states" required>
               <!-- javascript -->
             </select>
@@ -56,10 +92,22 @@
           <!-- RADIO BUTTON -->
           <div class="line-content">
             <span>Tipo de residência: </span>
-            <input type="radio" id="house" name="house-type" required>
-            <label for="house">Casa</label>            
-            <input type="radio" id="apartment" name="house-type" required>
-            <label for="apartment">Apartamento</label>  
+            <input
+              class="radio"
+              type="radio"
+              id="house"
+              name="house-type"
+              required
+            />
+            <label class="label" for="house">Casa</label>
+            <input
+              class="radio"
+              type="radio"
+              id="apartment"
+              name="house-type"
+              required
+            />
+            <label class="label" for="apartment">Apartamento</label>
           </div>
         </fieldset>
 
@@ -67,39 +115,73 @@
           <legend>Dados do último emprego</legend>
           <!-- RESUMO CURRICULO -->
           <div class="line-content">
-            <label for="cv-resume">Resumo do Currículo:</label>
-            <br>
-            <textarea name="cv-resume" id="cv-resume" class="cv-resume-style" cols="70" rows="20" maxlength="1000" required></textarea>
+            <label class="label" for="cv-resume">Resumo do Currículo:</label>
+            <br />
+            <textarea
+              class="textarea"
+              name="cv-resume"
+              id="cv-resume"
+              class="cv-resume-style"
+              cols="70"
+              rows="20"
+              maxlength="1000"
+              required
+            ></textarea>
           </div>
 
           <!-- CARGO -->
           <div class="line-content">
-            <label for="position">Cargo:</label>
-            <input type="text" id="position" name="position" maxlength="40" required>
+            <label class="label" for="position">Cargo:</label>
+            <input
+              class="input"
+              type="text"
+              id="position"
+              name="position"
+              maxlength="40"
+              required
+            />
           </div>
 
           <!-- DESCRICAO DO CARGO -->
           <div class="line-content">
-            <label for="position-description">Descrição do cargo:</label>
-            <input type="text" id="position-description" name="position-description" maxlength="500" required>
+            <label class="label" for="position-description">Descrição do cargo:</label>
+            <input
+              class="input"
+              type="text"
+              id="position-description"
+              name="position-description"
+              maxlength="500"
+              required
+            />
           </div>
 
           <!-- DATA DE INICIO -->
           <div class="line-content">
-            <label for="start-date">Data de início:</label>
-            <input type="text" name="start-date" id="start-date" maxlength="10">
+            <label class="label" for="start-date">Data de início:</label>
+            <input
+              class="input"
+              type="text"
+              name="start-date"
+              id="start-date"
+              maxlength="10"
+            />
           </div>
-
         </fieldset>
-        <button class="submit-button" type="submit">Enviar</button>
-        <button class="clear-button" type="reset">Limpar</button>
+        <button class="button is-success" type="submit">
+          Enviar
+        </button>
+        <button class="button is-danger" type="reset">
+          Limpar
+        </button>
       </form>
     </main>
 
     <section class="form-data"></section>
 
-
-    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"
+    ></script>
     <script src="script.js"></script>
   </body>
 </html>
