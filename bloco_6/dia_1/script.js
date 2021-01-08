@@ -82,22 +82,30 @@ function validateDate() {
   }
 }
 
+function submitForm(event) {
+  event.preventDefault();
+  const inputs = document.querySelectorAll('input[type=text]');
+  const radios = document.querySelectorAll('input[type=radio]');
+  const textArea = document.querySelector('textarea');
+  const select = document.querySelector('select');
+  const section = document.querySelector('section');
+  for (let index = 0; index < inputs.length; index += 1) {
+    const paragraph = document.createElement('p');
+    paragraph.innerText = inputs[index].value;
+    section.appendChild(paragraph);
+  }
+  
+}
+
+const submitButton = document.querySelector('.submit-button');
+submitButton.addEventListener('click', submitForm)
+
 const startDate = document.querySelector('#start-date');
 startDate.addEventListener('change', validateDate);
 
-// function validateDate() {
-//   let inputDate = document.getElementById('start-date').value;
-//   if(inputDate.indexOf('/') === 2 || inputDate.indexOf('/') === 5){
-//     let day = inputDate.substring(0, 2);
-//     let month = inputDate.substring(3, 5);
-//     let year = inputDate.substring(6, 10);
-//     if ((day < 0 || day > 31) || (month < 0 || month > 12) || (year < 0 || year.length !== 4)){
-//      alert('Formato de data incorreta (dd/mm/aaaa)');
-//      return;
-//     }
-//   }
-// }
+createStateOptions();
 
-window.onload = function () {
-  createStateOptions();
-};
+
+// window.onload = function () {
+//   createStateOptions();
+// };
