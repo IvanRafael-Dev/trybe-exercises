@@ -14,3 +14,8 @@ function orderNumbers(array) {
 }
 
 console.log(orderNumbers(oddsAndEvens));
+
+/////////////////////////////////////////////////////////////////
+
+const numberSort = array => array.sort((a, b) => a - b);
+console.log(numberSort(oddsAndEvens))
