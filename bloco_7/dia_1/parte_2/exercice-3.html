@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClickCount</title>    
+	</head>
+	<body>
+    <h1 id="click-counter">0</h1>
+    <button id="increase" type="button">Increase Value</button>
+    <button id="decrease" type="button">Decrease Value</button>
+    <script>
+      let clickCount = 0
+      const h1 = document.querySelector('#click-counter');
+      const increase = document.querySelector('#increase');
+      const decrease = document.querySelector('#decrease');
+      increase.addEventListener('click', () => h1.innerText = clickCount += 1);
+      decrease.addEventListener('click', () => h1.innerText = clickCount -= 1);
+    </script>
+  </body>
+</html>
