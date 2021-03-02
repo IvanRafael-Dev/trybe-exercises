@@ -1,0 +1,9 @@
+.Pokemon {
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+  width: 40%;
+  text-align: center;
+}
