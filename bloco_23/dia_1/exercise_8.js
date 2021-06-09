@@ -1,1 +1,1 @@
-db.books.find({ status: 'PUBLISH' }).count();
+db.books.count({ status: 'PUBLISH' });
