@@ -8,7 +8,9 @@
     "start": "node index.js",
     "imc": "node imc.js",
     "velocidade": "node velocidade.js",
-    "sorteio": "node sorteio.js"
+    "sorteio": "node sorteio.js",
+    "fatorial": "node fatorial.js",
+    "fibonnaci": "node fibonnaci.js"
   },
   "author": "Ivan Rafael",
   "license": "ISC",
