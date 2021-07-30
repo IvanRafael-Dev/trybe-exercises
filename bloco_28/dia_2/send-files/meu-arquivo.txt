@@ -1,0 +1,2 @@
+Arquivo de texto para teste de upload de file utilizando
+axios e FormData
