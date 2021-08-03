@@ -1,11 +1,15 @@
 const connection = require('./connection');
 
-const create = async ({ name, directedBy, releaseYear }) => {
+const create = async ({ title, directedBy, releaseYear }) => {
   const moviesCollection = await connection()
     .then((db) => db.collection('movies'));
+
   const { insertedId: id } = await moviesCollection
-    .insertOne({ name, directedBy, releaseYear });
-  return { id }
+    .insertOne({ title, directedBy, releaseYear });
+
+  return {
+    id,
+  };
 };
 
 module.exports = {
