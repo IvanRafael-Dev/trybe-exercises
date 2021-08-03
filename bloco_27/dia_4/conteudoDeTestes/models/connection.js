@@ -11,7 +11,7 @@ async function connection() {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
-    .then((conn) => conn.db('model_example'))
+    .then((conn) => conn.db('model_example_tests'))
     .then((dbSchema) => {
       schema = dbSchema;
       return schema;
