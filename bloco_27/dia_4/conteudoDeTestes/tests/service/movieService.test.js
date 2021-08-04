@@ -26,6 +26,7 @@ describe('Insere um novo filme no BD', () => {
       releaseYear: 1999,
     };
     
+    // mockar a camada abaixo (model), nao podemos depender de models para os testes;
     before(() => {
       const ID_EXAMPLE = '604cb554311d68f491ba5781';
       sinon.stub(MoviesService, 'create').resolves({ id: ID_EXAMPLE });
