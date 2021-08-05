@@ -1,0 +1,25 @@
+{
+  "name": "conteudo-de-testes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "mocha ./tests/**/*$NAME*.test.js --exit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chai": "^4.3.4",
+    "express": "^4.17.1",
+    "mocha": "^9.0.3",
+    "mongodb": "^4.0.1",
+    "sinon": "^11.1.2"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "mongodb-memory-server": "^6.9.6"
+  }
+}
