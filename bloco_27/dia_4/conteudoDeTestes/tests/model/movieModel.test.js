@@ -36,7 +36,7 @@ after(() => {
 
 describe('Insere um novo filme no DB', () => {
   const moviePayload = {
-    name: 'Bastardos Inglórios',
+    title: 'Bastardos Inglórios',
     directedBy: 'Quentin Tarantino',
     releaseYear: 2009,
   };
