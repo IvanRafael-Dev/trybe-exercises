@@ -12,6 +12,11 @@ const create = async ({ title, directedBy, releaseYear }) => {
   };
 };
 
+const getAll = async () => connection()
+    .then((db) => db.collection('movies'))
+    .then((collection) => collection.find().toArray());
+
 module.exports = {
   create,
+  getAll,
 };

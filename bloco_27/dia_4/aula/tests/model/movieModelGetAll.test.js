@@ -1,9 +1,26 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
+const { MongoClient } = require('mongodb');
+const { MongoMemoryServer } = require('mongodb-memory-server'); // @6
 const MovieModel = require('../../models/movieModel');
 
 describe('Busca todos os filmes do DB', () => { // qual parte do codigo vou testar?
-  // arrange // act // assert  
+  // arrange // act // assert
+  const DBmodel = new MongoMemoryServer();
+  before(async () => {
+    const urlMock = await DBmodel.getUri();
+    const mockConnection = await MongoClient.connect(urlMock, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+  
+    sinon.stub(MongoClient, 'connect').resolves(mockConnection);
+  });
+  
+  after(async () => {
+    MongoClient.connect.restore();
+    await DBmodel.stop();
+  })  
   describe('quando não existe nenhum filme cadastrado', () => { // caso de uso
 
     it('ele retorna um array', async () => { // o que eu quero
