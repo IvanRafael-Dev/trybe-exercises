@@ -14,7 +14,9 @@ const create = async ({ title, directedBy, releaseYear }) => {
 
 const getAll = async () => connection()
     .then((db) => db.collection('movies'))
-    .then((collection) => collection.find().toArray());
+    .then((collection) => collection.find().toArray())
+    .then((movies) => movies
+      .map(({ _id, ...movies }) => ({ id: _id, ...movies })));
 
 module.exports = {
   create,

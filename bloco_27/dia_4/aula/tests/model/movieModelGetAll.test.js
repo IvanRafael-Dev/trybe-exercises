@@ -7,20 +7,22 @@ const MovieModel = require('../../models/movieModel');
 describe('Busca todos os filmes do DB', () => { // qual parte do codigo vou testar?
   // arrange // act // assert
   const DBmodel = new MongoMemoryServer();
+  let mockConnection;
   before(async () => {
     const urlMock = await DBmodel.getUri();
-    const mockConnection = await MongoClient.connect(urlMock, {
+    mockConnection = await MongoClient.connect(urlMock, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-    });
+    }); // cria a conexao mockada
   
-    sinon.stub(MongoClient, 'connect').resolves(mockConnection);
+    sinon.stub(MongoClient, 'connect').resolves(mockConnection); // e conecto esse mock com o banco
   });
   
   after(async () => {
     MongoClient.connect.restore();
     await DBmodel.stop();
-  })  
+  });
+
   describe('quando não existe nenhum filme cadastrado', () => { // caso de uso
 
     it('ele retorna um array', async () => { // o que eu quero
@@ -35,7 +37,18 @@ describe('Busca todos os filmes do DB', () => { // qual parte do codigo vou test
   });
 
   describe('Quando existe pelo menos um filme cadastrado', () => {
-    
+    before(async () => {
+      await mockConnection.db('model_example_tests').collection('movies').insertOne({
+        title: "Interestellar",
+        directedBy: "Christopher Nolan",
+        releaseYear: 2015,
+      })
+    });
+
+    after(async () => {
+      await mockConnection.db('model_example_tests').collection('movies').deleteMany({});
+    });
+
     it('retorna um array', async () => {
       const result = await MovieModel.getAll();
       expect(result).to.be.an('array');
