@@ -13,6 +13,12 @@ const create = async (req, res) => {
   res.status(201).send('Filme criado com sucesso!');
 };
 
+const getAll = async (req, res) => {
+  const movies = await MoviesService.getAll();
+  res.status(200).json(movies);
+};
+
 module.exports = {
   create,
+  getAll
 };

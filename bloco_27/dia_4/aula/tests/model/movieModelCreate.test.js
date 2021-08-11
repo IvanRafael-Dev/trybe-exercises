@@ -18,23 +18,28 @@ const MoviesModel = require('../../models/movieModel');
   seta URL com getUri 
   e faz o mock da connection antes de todos os testes
  */
-before(async () => {
-  const DBSERVER = new MongoMemoryServer();
-  const URLMOCK = await DBSERVER.getUri(); // getUri retorna uma promise
-  const mockConnection = await MongoClient.connect(
-    URLMOCK, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
 
-  sinon.stub(MongoClient, "connect").resolves(mockConnection);
-});
-
-after(() => {
-  MongoClient.connect.restore();
-});
 
 describe('Insere um novo filme no DB', () => {
+  let mockConnection;
+
+  before(async () => {
+    const DBSERVER = new MongoMemoryServer();
+    const URLMOCK = await DBSERVER.getUri(); // getUri retorna uma promise
+    mockConnection = await MongoClient.connect(
+      URLMOCK, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+
+    sinon.stub(MongoClient, "connect").resolves(mockConnection);
+  });
+
+  after(async () => {
+    await mockConnection.db('model_example_tests').collection('movies').deleteMany({});
+    MongoClient.connect.restore();
+  });
+
   const moviePayload = {
     title: 'Bastardos Inglórios',
     directedBy: 'Quentin Tarantino',

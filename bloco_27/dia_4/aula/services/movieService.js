@@ -21,7 +21,7 @@ const create = async ({ title, directedBy, releaseYear }) => {
   };
 };
 
-const getAll = async () => MoviesModel.getAll();
+const getAll = () => MoviesModel.getAll();
 
 module.exports = {
   create,

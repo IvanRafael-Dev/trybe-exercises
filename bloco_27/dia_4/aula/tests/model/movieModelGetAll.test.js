@@ -20,7 +20,6 @@ describe('Busca todos os filmes do DB', () => { // qual parte do codigo vou test
   
   after(async () => {
     MongoClient.connect.restore();
-    await DBmodel.stop();
   });
 
   describe('quando não existe nenhum filme cadastrado', () => { // caso de uso
@@ -32,6 +31,7 @@ describe('Busca todos os filmes do DB', () => { // qual parte do codigo vou test
 
     it('o array é vazio', async () => {
       const result = await MovieModel.getAll();
+      console.log(result);
       expect(result).to.be.empty; 
     });
   });
@@ -51,6 +51,8 @@ describe('Busca todos os filmes do DB', () => { // qual parte do codigo vou test
 
     it('retorna um array', async () => {
       const result = await MovieModel.getAll();
+      console.log(result);
+
       expect(result).to.be.an('array');
     });
 

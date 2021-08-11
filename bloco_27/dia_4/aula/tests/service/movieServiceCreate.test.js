@@ -1,6 +1,7 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
 
+const MoviesModel = require('../../models/movieModel');
 const MoviesService = require('../../services/movieService');
 
 describe('Insere um novo filme no BD', () => {
@@ -29,11 +30,11 @@ describe('Insere um novo filme no BD', () => {
     // mockar a camada abaixo (model), nao podemos depender de models para os testes;
     before(() => {
       const ID_EXAMPLE = '604cb554311d68f491ba5781';
-      sinon.stub(MoviesService, 'create').resolves({ id: ID_EXAMPLE });
+      sinon.stub(MoviesModel, 'create').resolves({ id: ID_EXAMPLE });
     });
 
     after(() => {
-      MoviesService.create.restore();
+      MoviesModel.create.restore();
     });
     
     it('retorna um objeto', async () => {
