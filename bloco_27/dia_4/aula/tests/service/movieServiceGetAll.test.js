@@ -45,7 +45,6 @@ describe('Busca todos os filmes no DB', () => {
 
     it('retorna um array', async () => {
       const result = await MoviesService.getAll();
-      console.log(result);
       expect(result).to.be.an('array');
     });
 

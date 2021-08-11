@@ -1,19 +1,16 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
 const { MongoClient } = require('mongodb');
-const { MongoMemoryServer } = require('mongodb-memory-server'); // @6
+const { getConnection } = require('../mockConnection');
+
 const MovieModel = require('../../models/movieModel');
 
 describe('Busca todos os filmes do DB', () => { // qual parte do codigo vou testar?
   // arrange // act // assert
-  const DBmodel = new MongoMemoryServer();
   let mockConnection;
+
   before(async () => {
-    const urlMock = await DBmodel.getUri();
-    mockConnection = await MongoClient.connect(urlMock, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }); // cria a conexao mockada
+    mockConnection = await getConnection(); // cria a conexao mockada
   
     sinon.stub(MongoClient, 'connect').resolves(mockConnection); // e conecto esse mock com o banco
   });
@@ -31,7 +28,6 @@ describe('Busca todos os filmes do DB', () => { // qual parte do codigo vou test
 
     it('o array é vazio', async () => {
       const result = await MovieModel.getAll();
-      console.log(result);
       expect(result).to.be.empty; 
     });
   });
@@ -51,8 +47,6 @@ describe('Busca todos os filmes do DB', () => { // qual parte do codigo vou test
 
     it('retorna um array', async () => {
       const result = await MovieModel.getAll();
-      console.log(result);
-
       expect(result).to.be.an('array');
     });
 
