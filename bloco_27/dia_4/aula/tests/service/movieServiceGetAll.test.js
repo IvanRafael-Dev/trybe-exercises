@@ -7,7 +7,8 @@ const MoviesService = require('../../services/movieService');
 describe('Busca todos os filmes no DB', () => {
   describe('quando não existe nenhum filme cadastrado', () => {
     before(() => {
-      sinon.stub(MoviesModel, 'getAll').resolves([]);
+      sinon.stub(MoviesModel, 'getAll') // service chama o model, entao mockamos o model
+        .resolves([]); // o que o model retorna
     });
 
     after(() => {
@@ -27,14 +28,15 @@ describe('Busca todos os filmes no DB', () => {
   
   describe('quando existe pelo menos um filme cadastrado', () => {
     before(() => {
-      sinon.stub(MoviesModel, 'getAll').resolves([
-        {
-          id: 1,
-          title: 'Twister',
-          directedBy: 'Some author',
-          releaseYear: 2000,
-        }
-      ]);
+      sinon.stub(MoviesModel, 'getAll')
+        .resolves([
+          {
+            id: '6113dcbc01d3af7a4207e2fb', // 
+            title: 'Twister',
+            directedBy: 'Some author',
+            releaseYear: 2000,
+          }
+        ]);
     });
 
     after(() => {
