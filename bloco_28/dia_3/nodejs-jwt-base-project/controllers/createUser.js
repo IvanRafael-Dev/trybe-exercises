@@ -9,6 +9,7 @@ module.exports = async (req, res) => {
     if (!username) throw Error;
     res.status(201).json({ message: 'Novo usuário criado com sucesso', user: username });
   } catch (err) {
+    console.log(err);
     res
       .status(500)
       .json({ message: 'Erro ao salvar o usuário no banco', error: err });

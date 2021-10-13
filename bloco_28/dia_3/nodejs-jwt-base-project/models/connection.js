@@ -15,3 +15,4 @@ connection = () =>
     });
 
 module.exports = connection;
+

@@ -4,7 +4,8 @@
   "main": "./api/server.js",
   "scripts": {
     "dev": "nodemon .",
-    "test": "mocha ./tests/**/*$NAME*.test.js --exit"
+    "test": "mocha ./tests/**/*$NAME*.test.js --exit",
+    "test:coverage": "nyc npm test"
   },
   "dependencies": {
     "bcrypt-nodejs": "~0.0.3",
@@ -13,12 +14,14 @@
     "jwt-simple": "~0.5.6",
     "moment": "~2.29.1",
     "mongodb": "~3.6.2",
+    "mongodb-memory-server": "^6.9.6",
     "nodemon": "~2.0.4"
   },
   "devDependencies": {
     "chai": "^4.3.4",
     "chai-http": "^4.3.0",
     "mocha": "^9.0.3",
+    "nyc": "^15.1.0",
     "sinon": "^11.1.2"
   }
 }
