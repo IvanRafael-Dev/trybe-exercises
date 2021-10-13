@@ -26,16 +26,26 @@ Agora só nos resta configurar o arquivo config.json gerado pelo init do CLI. Ao
         "database": "orm_example",
         "host": "127.0.0.1",
         "dialect": "mysql"
-       }
+        }
     // No resto do arquivo você vai encontrar as convenções para conectar o Sequelize em outros ambientes
     }
 
-  - Usuário de acesso ao banco de dados;
-  - Senha de acesso ao banco de dados;
-  - Nome do banco de dados no qual queremos conectar;
-  - Host que estamos conectando - por ser local, utilizamos o 127.0.0.1 ;
-  - Dialect é, nada mais nada menos, qual banco estamos utilizando. Dito isso, passamos "mysql".
+- Usuário de acesso ao banco de dados;
+- Senha de acesso ao banco de dados;
+- Nome do banco de dados no qual queremos conectar;
+- Host que estamos conectando - por ser local, utilizamos o 127.0.0.1 ;
+- Dialect é, nada mais nada menos, qual banco estamos utilizando. Dito isso, passamos "mysql".
 
 ## Criando o banco usando o CLI do Sequelize
 
- - npx sequelize db:create
+- npx sequelize db:create
+
+## Criando um model
+
+- exemplo (não precisa ser executado)
+  -  npx sequelize model:generate --name NomeDoModel --attributes nomeDoAtributo:string
+      - name -> nome da tabela
+      - attributes -> nome das colunas e tipo de dados
+- exemplo de criação da tabela users
+  - npx sequelize model:generate --name User --attributes fullName:string
+      - criado arquivo na pasta migration (yyyy-MM-dd:hh:mm:ss) e User.js na pasta model
