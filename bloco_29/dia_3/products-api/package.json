@@ -15,7 +15,8 @@
   "devDependencies": {
     "eslint-config-trybe-backend": "^1.0.3",
     "jest": "^26.6.3",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "sequelize-cli": "^6.2.0"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
