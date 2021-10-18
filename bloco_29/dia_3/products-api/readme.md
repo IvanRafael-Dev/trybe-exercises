@@ -130,5 +130,11 @@ module.exports = User;
       console.log(e.message);
       return res.status(500).json({ message: 'Algo deu errado' });
     });  
-});
+  });  
+```
+
+## Relacionamentos N : N
+
+```images
+  ![plot](./assets/images/estruturaLiquidacoes.png)
 ```
