@@ -145,4 +145,46 @@ module.exports = User;
   npx sequelize-cli- db:migrate
   ```
 
+### Criando a tabela Selloff-Products 
 
+- ```
+  npx sequelize-cli migration:create --name create-selloffs-products-table
+  ```
+- criamos a tabela Selloff-Products contendo duas PK que sao tambem as FK das tabelas relacionadas. 
+A juncao dessas duas PK formam a PK da tabela Selloff-Products.
+- nossa migration ficaria assim: 
+```javascript
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable('SelloffProducts', {
+      selloffId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Selloffs',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
+        primaryKey: true,
+      },
+      
+      productId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Products',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
+        primaryKey: true,
+      },
+    });
+  },
+
+  down: async (queryInterface, _Sequelize) => {
+    await queryInterface.dropTable('SelloffProducts');
+  },
+};
+```
+-  agora é só executar a migration
+ ```
+ npx sequelize-cli db:migrate
+ ```

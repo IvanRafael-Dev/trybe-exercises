@@ -32,6 +32,7 @@ router.get('/', (req, res, _next) => {
 });
 
 router.get('/:id', (req, res, _next) => {
+  console.log(req.params.id);
   Selloff.findByPk(req.params.id, {
     include: { model: Product, as: 'products', through: { attributes: [] } },
   })
