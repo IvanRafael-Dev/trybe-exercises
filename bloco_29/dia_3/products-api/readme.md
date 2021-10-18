@@ -134,7 +134,10 @@ module.exports = User;
 ```
 
 ## Relacionamentos N : N
+  <img src="./assets/images/estruturaLiquidacoes.png" width="70%">
 
-```images
-  ![plot](./assets/images/estruturaLiquidacoes.png)
-```
+- criar a tabela `SellOffs`:
+    ```
+    npx sequelize-cli model:generate --name Selloff --attributes name:string,discount:float,startDate:date,endDate:date
+    ```
+
