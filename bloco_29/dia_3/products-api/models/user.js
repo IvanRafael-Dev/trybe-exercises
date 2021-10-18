@@ -6,6 +6,14 @@ const User = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
   });
 
+  user.associate = (models) => {
+    user.hasMany(models.Product, { as: 'products', foreignKey: 'userId' });
+    // vamos na tabela de produtos e vemos quantos produtos um usuario tem
+    // observando a chave userId de product
+    // automaticamente tbm é criada uma funcao getProducts() 
+    // que pode ser usada como user.getProducts() que vai retornar os produtos pertencentes ao usuario
+  };
+
   return user;
 };
 

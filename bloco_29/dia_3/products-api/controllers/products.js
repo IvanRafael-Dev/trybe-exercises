@@ -1,10 +1,10 @@
 const rescue = require('express-rescue');
-const { Product } = require('../models');
+const { Product, User } = require('../models');
 
 const createProduct = rescue(async (req, res) => {
-  const { name, description, price } = req.body;
+  const { name, description, price, userId } = req.body;
 
-  const newProduct = await Product.create({ name, description, price });
+  const newProduct = await Product.create({ name, description, price, userId });
 
   res.status(201).json(newProduct);
 });
@@ -16,7 +16,15 @@ const getAllProducts = rescue(async (req, res) => {
 });
 
 const getProductById = rescue(async (req, res, next) => {
-  const product = await Product.findByPk(req.params.id);
+  // eager loading: 
+  const product = await Product.findByPk(req.params.id, 
+    { include: 
+      { model: User, as: 'user', attributes: { exclude: ['password'] } },
+    });
+
+  // lazy loading: 
+  // const product = await Product.findByPk(req.params.id);
+  // const user = await product.getUser();
 
   if (!product) {
     return next({

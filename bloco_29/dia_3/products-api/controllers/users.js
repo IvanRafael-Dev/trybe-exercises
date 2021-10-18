@@ -27,10 +27,13 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  User.findByPk(req.params.id)
-    .then((user) => {
+  User.findByPk(req.params.id, { attributes: { exclude: ['password'] } })
+    .then(async (user) => {
       if (user === null) return res.status(404).json({ message: 'Usuario não encontrado' });
-      return res.status(200).json(user);
+      if (!req.query.includeProducts) return res.status(200).json(user);
+      
+      const products = await user.getProducts();
+      return res.status(200).json({ ...user.dataValues, products });
     })
     .catch((e) => {
       console.log(e.message);
