@@ -140,4 +140,9 @@ module.exports = User;
     ```
     npx sequelize-cli model:generate --name Selloff --attributes name:string,discount:float,startDate:date,endDate:date
     ```
+- tudo ok rodamos a migration:  
+  ```
+  npx sequelize-cli- db:migrate
+  ```
+
 

@@ -24,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/ping', controllers.ping);
 app.use('/users', controllers.users); // chamando como router apenas para teste
+app.use('/selloffs', controllers.selloffs); // chamando como como como
 
 app.post('/products', controllers.products.createProduct);
 app.get('/products', controllers.products.getAllProducts);
